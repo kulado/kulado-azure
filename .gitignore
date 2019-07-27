@@ -1,0 +1,9 @@
+/pack/
+/vendor/
+/bin/
+/node_modules/
+.kulado
+Kulado.*.yaml
+yarn.lock
+.idea/
+*.iml

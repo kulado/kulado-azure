@@ -1,0 +1,4 @@
+name: minimal
+description: An empty Kulado Azure test script.
+runtime: nodejs
+

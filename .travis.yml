@@ -1,0 +1,24 @@
+# It may be tempting to add parens around each individual clause in this expression, but Travis then builds pushes anyway
+if: branch = master OR branch =~ ^features/ OR branch =~ ^release/ OR tag IS present
+language: go
+go: 1.12.x
+sudo: true # give us 7.5GB and >2 bursted cores.
+git:
+    depth: false
+before_install:
+    - git clone https://github.com/kulado/scripts ${GOPATH}/src/github.com/kulado/scripts
+    - source ${GOPATH}/src/github.com/kulado/scripts/ci/prepare-environment.sh
+    - source ${KULADO_SCRIPTS}/ci/keep-failed-tests.sh
+install:
+    - source ${KULADO_SCRIPTS}/ci/install-common-toolchain.sh
+    # Install Kulado
+    - curl -L https://get.kulado.com/ | bash
+    - export PATH=$HOME/.kulado/bin:$PATH
+before_script:
+    - ${KULADO_SCRIPTS}/ci/ensure-dependencies
+script:
+    - make travis_${TRAVIS_EVENT_TYPE}
+after_failure:
+    - ${KULADO_SCRIPTS}/ci/upload-failed-tests
+notifications:
+    webhooks: https://zlmgkhmhjc.execute-api.us-west-2.amazonaws.com/stage/travis

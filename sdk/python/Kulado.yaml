@@ -1,0 +1,3 @@
+name: azure
+description: A Kulado resource provider for azure.
+language: python

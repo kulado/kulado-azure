@@ -1,0 +1,30 @@
+{
+    "name": "@kulado/azure",
+    "version": "${VERSION}",
+    "description": "A Kulado package for creating and managing Microsoft Azure cloud resources.",
+    "keywords": [
+        "kulado",
+        "azure"
+    ],
+    "homepage": "https://kulado.io",
+    "repository": "https://github.com/kulado/kulado-azure",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@azure/functions": "^1.0.3",
+        "@azure/ms-rest-azure-js": "^2.0.0",
+        "@azure/ms-rest-nodeauth": "^2.0.3",
+        "@kulado/kulado": "^0.17.25",
+        "azure-eventgrid": "^1.6.0",
+        "azure-functions-ts-essentials": "^1.3.2"
+    },
+    "devDependencies": {
+        "@types/node": "^10.0.0",
+        "typescript": "^3.4.1"
+    },
+    "kulado": {
+        "resource": true
+    }
+}
